@@ -8,7 +8,7 @@ function getPrediction(req, res) {
 
     PythonShell.run('./python.py', function (err, data) {
         if (err) res.send(err);
-        res.send(data.toString())
+        res.json(data)
     });
 }
 
