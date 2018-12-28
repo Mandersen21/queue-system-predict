@@ -6,7 +6,6 @@ const config = require('config');
 const winston = require('winston');
 const PythonShell = require('python-shell');
 
-
 app.use(cors())
 app.use(bodyParser.json());
 app.use(express.urlencoded({ extended: true }));
