@@ -10,7 +10,7 @@ app.use(cors())
 app.use(bodyParser.json());
 app.use(express.urlencoded({ extended: true }));
 
-// Python endpoint
+// Python endpoint.
 app.get('/predict', getPrediction);
 
 function getPrediction(req, res) {
