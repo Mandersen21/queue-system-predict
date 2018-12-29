@@ -15,7 +15,18 @@ app.get('/predict', getPrediction);
 
 function getPrediction(req, res) {
 
-    PythonShell.run('./python.py', function (err, data) {
+    // Options to script
+    var options = {
+        args:
+        [
+          req.body.triage, // triage colour
+          req.body.week, // week day
+          req.body.time, // time at day
+          req.body.avgWait // average waiting time for last 3 patients
+        ]
+      }
+
+    PythonShell.run('./python.py', options, function (err, data) {
         if (err) res.send(err);
         if (data) {
             var prediction = data.toString()

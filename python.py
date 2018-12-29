@@ -1,7 +1,14 @@
 import sys
 import numpy
+import json
 import importlib
 import pandas as pd
+
+# Get parameters from request
+triage = int(sys.argv[1])
+week = int(sys.argv[2])
+time = int(sys.argv[3])
+avgWait = int(sys.argv[4])
 
 data = pd.read_csv("./data.csv")
 
@@ -17,4 +24,4 @@ from sklearn.linear_model import LinearRegression
 regressor = LinearRegression()
 regressor.fit(X_train, y_train)
 
-print(regressor.predict([[0, 0, 0, 40]]))
+print(regressor.predict([[triage, week, time, avgWait]]))
