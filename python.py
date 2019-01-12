@@ -5,15 +5,16 @@ import importlib
 import pandas as pd
 
 # Get parameters from request
-triage = int(sys.argv[1])
-week = int(sys.argv[2])
+avgWait = int(sys.argv[1])
+age = int(sys.argv[2])
 time = int(sys.argv[3])
-avgWait = int(sys.argv[4])
+week = int(sys.argv[4])
+inFront = int(sys.argv[5])
 
 data = pd.read_csv("./data.csv")
 
 X = data.iloc[:, 0:4]  #independent columns
-y = data.iloc[:,4]    #target column i.e price range
+y = data.iloc[:,4]    #target column
 
 wait = y
 
@@ -24,4 +25,4 @@ from sklearn.linear_model import LinearRegression
 regressor = LinearRegression()
 regressor.fit(X_train, y_train)
 
-print(regressor.predict([[triage, week, time, avgWait]]))
+print(regressor.predict([[avgWait, age, time, week, inFront]]))

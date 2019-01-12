@@ -19,10 +19,11 @@ function getPrediction(req, res) {
     var options = {
         args:
         [
-          req.body.triage, // triage colour
-          req.body.week, // week day
-          req.body.time, // time at day
-          req.body.avgWait // average waiting time for last 3 patients
+          req.body.avgWait,
+          req.body.age,
+          req.body.time,
+          req.body.week,
+          req.body.inFront
         ]
       }
 
