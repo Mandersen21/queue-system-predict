@@ -13,8 +13,8 @@ inFront = int(sys.argv[5])
 
 data = pd.read_csv("./data.csv")
 
-X = data.iloc[:, 0:4]  #independent columns
-y = data.iloc[:,4]    #target column
+X = data.iloc[:, 0:5]  #independent columns
+y = data.iloc[:, 5]    #target column
 
 wait = y
 
